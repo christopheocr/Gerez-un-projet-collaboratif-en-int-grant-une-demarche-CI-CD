@@ -84,10 +84,11 @@ jobs:
           name: backend-coverage
           path: back/target/site/jacoco
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: sonarsource/sonarqube-scan-action@v5.0.0
         with:
-          projectKey: christopheocr_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
-          organization: christopheocr
+          args: >
+            -Dsonar.projectKey=christopheocr_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
+            -Dsonar.organization=christopheocr
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
