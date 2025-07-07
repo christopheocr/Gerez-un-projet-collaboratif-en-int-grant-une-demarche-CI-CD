@@ -3,12 +3,8 @@ name: Backend CI - Test & Sonarcloud Analysis
 on:
   push:
     branches: [ "main", "develop" ]
-    paths:
-      - 'back/**'
   pull_request:
     branches: [ "main" ]
-    paths:
-      - 'back/**'
 
 jobs:
   backend:
@@ -48,6 +44,8 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@master
         with:
           projectBaseDir: back
+          projectKey: ton_project_key_backend
+          organization: ton_organisation
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
