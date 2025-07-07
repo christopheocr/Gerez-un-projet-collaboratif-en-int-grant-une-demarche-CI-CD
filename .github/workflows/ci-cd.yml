@@ -89,6 +89,10 @@ jobs:
           args: >
             -Dsonar.projectKey=christopheocr_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
             -Dsonar.organization=christopheocr
+            -Dsonar.sources=.
+            -Dsonar.java.binaries=back/target/classes
+            -Dsonar.javascript.lcov.reportPaths=front/coverage/lcov.info
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
 
